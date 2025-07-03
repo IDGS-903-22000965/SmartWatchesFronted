@@ -1,0 +1,143 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content">
+          <h1 class="display-4 text-white fade-in-up">
+            Los Mejores <span class="text-warning">Relojes Inteligentes</span>
+          </h1>
+          <p class="lead text-white mb-4 fade-in-up" style="animation-delay: 0.2s;">
+            Descubre nuestra colección exclusiva de smartwatches de las mejores marcas. 
+            Tecnología avanzada, diseño elegante y funcionalidad excepcional para tu estilo de vida.
+          </p>
+          <div class="d-flex flex-column flex-md-row gap-3 fade-in-up" style="animation-delay: 0.4s;">
+            <button class="btn btn-warning btn-hero" (click)="navigateToProducts()">
+              <i class="fas fa-shopping-bag me-2"></i>
+              Ver Productos
+            </button>
+            <button class="btn btn-outline-light btn-hero" (click)="navigateToCategory(4)">
+              <i class="fas fa-crown me-2"></i>
+              Productos Premium
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img 
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80" 
+            alt="Smartwatch Hero" 
+            class="img-fluid hero-image fade-in-up"
+            style="animation-delay: 0.6s;"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5">Productos Destacados</h2>
+        <p class="lead">Los relojes inteligentes más populares de nuestra tienda</p>
+      </div>
+
+      <!-- Loading -->
+      <div *ngIf="loading" class="text-center py-5">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p class="mt-3 text-muted">Cargando productos destacados...</p>
+      </div>
+
+      <!-- Error -->
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        {{ error }}
+      </div>
+
+      <!-- Products Grid -->
+      <div *ngIf="!loading && !error" class="row">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of featuredProducts; let i = index">
+          <div class="fade-in-up" [style.animation-delay]="(i * 0.1) + 's'">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Button -->
+      <div *ngIf="!loading && !error" class="text-center mt-5">
+        <button class="btn btn-primary btn-lg btn-hero" (click)="navigateToProducts()">
+          <i class="fas fa-arrow-right me-2"></i>
+          Ver Todos los Productos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5">Explora por Categorías</h2>
+        <p class="lead">Encuentra el reloj perfecto para tu estilo de vida</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="category-card fade-in-up" style="animation-delay: 0.1s;" (click)="navigateToCategory(1)">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&q=80" alt="Deportivos">
+            </div>
+            <div class="category-content">
+              <h5>Deportivos</h5>
+              <p>Para tu entrenamiento diario</p>
+              <i class="fas fa-running category-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="category-card fade-in-up" style="animation-delay: 0.2s;" (click)="navigateToCategory(2)">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Elegantes">
+            </div>
+            <div class="category-content">
+              <h5>Elegantes</h5>
+              <p>Diseño sofisticado</p>
+              <i class="fas fa-user-tie category-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="category-card fade-in-up" style="animation-delay: 0.3s;" (click)="navigateToCategory(3)">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1544117519-31a4b719223d?w=400&q=80" alt="Básicos">
+            </div>
+            <div class="category-content">
+              <h5>Básicos</h5>
+              <p>Funcionalidad esencial</p>
+              <i class="fas fa-clock category-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="category-card fade-in-up" style="animation-delay: 0.4s;" (click)="navigateToCategory(4)">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&q=80" alt="Premium">
+            </div>
+            <div class="category-content">
+              <h5>Premium</h5>
+              <p>Lujo y tecnología</p>
+              <i class="fas fa-crown category-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

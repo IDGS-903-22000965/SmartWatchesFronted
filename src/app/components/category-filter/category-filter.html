@@ -1,0 +1,38 @@
+<div class="category-filter">
+  <h6 class="filter-title">
+    <i class="fas fa-filter me-2"></i>
+    Filtrar por Categoría
+  </h6>
+  
+  <div class="category-buttons">
+    <!-- Botón "Todas" -->
+    <button 
+      type="button" 
+      class="btn category-btn"
+      [class.active]="isSelected(null)"
+      (click)="onCategorySelect(null)"
+    >
+      <i class="fas fa-th me-1"></i>
+      Todas
+    </button>
+
+    <!-- Loading -->
+    <div *ngIf="loading" class="text-center py-2">
+      <div class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+
+    <!-- Botones de categorías -->
+    <button 
+      *ngFor="let category of categories"
+      type="button" 
+      class="btn category-btn"
+      [class.active]="isSelected(category.id)"
+      (click)="onCategorySelect(category.id)"
+    >
+      <i [class]="getCategoryIcon(category.name)" class="me-1"></i>
+      {{ category.name }}
+    </button>
+  </div>
+</div>

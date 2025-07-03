@@ -1,0 +1,138 @@
+footer {
+  margin-top: auto;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.text-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  
+  i {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
+}
+
+.text-muted {
+  color: #94a3b8 !important;
+  line-height: 1.6;
+}
+
+a {
+  transition: all 0.3s ease;
+  color: #cbd5e1;
+  text-decoration: none;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
+    color: #667eea !important;
+    transform: translateX(3px);
+    
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+ul {
+  padding-left: 0;
+  
+  li {
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateX(5px);
+    }
+    
+    i {
+      color: #667eea;
+      margin-right: 0.5rem;
+      width: 20px;
+    }
+  }
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+// Copyright section
+.row:last-child {
+  .text-muted {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  footer {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    
+    .col-md-4 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    h5, h6 {
+      margin-bottom: 1rem;
+    }
+    
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    
+    a:hover {
+      transform: none;
+    }
+    
+    ul li:hover {
+      transform: none;
+    }
+  }
+}

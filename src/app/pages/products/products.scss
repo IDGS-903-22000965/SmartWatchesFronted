@@ -1,0 +1,242 @@
+.products-page {
+  min-height: calc(100vh - 200px);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding-top: 100px;
+}
+
+.page-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 4rem 3rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(118, 75, 162, 0.03));
+    z-index: -1;
+  }
+  
+  .display-5 {
+    font-weight: 800;
+    color: #1e293b;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  
+  .lead {
+    color: #64748b;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
+
+.search-container {
+  margin-bottom: 2rem;
+  
+  .input-group {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    
+    .input-group-text {
+      background: transparent;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      color: #64748b;
+    }
+    
+    .form-control {
+      background: transparent;
+      border: none;
+      padding: 1.25rem 1rem;
+      font-size: 1rem;
+      color: #1e293b;
+      
+      &::placeholder {
+        color: #94a3b8;
+      }
+      
+      &:focus {
+        background: transparent;
+        box-shadow: none;
+        color: #1e293b;
+      }
+    }
+    
+    .btn {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      padding: 1.25rem 1.5rem;
+      
+      &:hover {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+    }
+  }
+}
+
+.results-info {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+  color: #64748b;
+}
+
+.products-grid {
+  .row {
+    margin: 0 -1rem;
+  }
+  
+  [class*="col-"] {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+// Loading states
+.text-center.py-5 {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  .spinner-border {
+    color: #667eea;
+  }
+  
+  p {
+    color: #64748b;
+    font-weight: 500;
+  }
+}
+
+// Error states
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 15px;
+  color: #dc2626;
+  
+  .btn-outline-danger {
+    border-color: #ef4444;
+    color: #ef4444;
+    
+    &:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: white;
+    }
+  }
+}
+
+// No results state
+.text-center.py-5 {
+  h4 {
+    color: #1e293b;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .fa-search {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    
+    &:hover {
+      background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+  }
+}
+
+// Animations
+.fade-in-products {
+  animation: fadeInProducts 0.6s ease-out;
+}
+
+@keyframes fadeInProducts {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .products-page {
+    padding-top: 80px;
+  }
+  
+  .page-header {
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+    
+    .display-5 {
+      font-size: 2rem;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .search-container {
+    .input-group {
+      .input-group-text,
+      .form-control,
+      .btn {
+        padding: 1rem 1.25rem;
+      }
+      
+      .form-control {
+        font-size: 0.95rem;
+      }
+    }
+  }
+  
+  .products-grid {
+    .row {
+      margin: 0 -0.5rem;
+    }
+    
+    [class*="col-"] {
+      padding: 0 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
